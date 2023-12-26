@@ -23,6 +23,6 @@
 
 ## Planning
 
-[ ] Write a website, deploy locally on Docker.
-[ ] Configure Jenkins to automatically pull changes -> build image -> publish image.
-[ ] Configure Jenkins to automatically trigger the docker to run the container.
+[] Write a website, deploy locally on Docker.
+[] Configure Jenkins to automatically pull changes -> build image -> publish image.
+[] Configure Jenkins to automatically trigger the docker to run the container.
