@@ -9,6 +9,7 @@ pipeline {
     stage('Build and publish Docker image'){
       steps{
         withDockerRegistry(credentialsId: '(docker hub)', url: 'https://index.docker.io/v1/') {
+          bat ' cd Fireworks'
           bat ' docker build . -t 21120253/devops_hcmus'
           bat 'docker push 21120253/devops_hcmus'
         }
