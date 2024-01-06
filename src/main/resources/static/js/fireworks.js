@@ -11,6 +11,8 @@ let particleSettings = {
   gravity: 0.05,
 };
 
+let r = 0, g = 0, b = 0;
+
 //Events Object
 let events = {
   mouse: {
@@ -112,13 +114,24 @@ Particle.prototype = {
   },
 };
 
+function chooseColor(r, g, b) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+}
+
 function createFirework() {
   //Increase range for bigger fireworks
   var numberOfParticles = randomNumberGenerator(10, 50);
-  let color = `rgb(${randomNumberGenerator(0, 255)},${randomNumberGenerator(
-    0,
-    255
-  )},${randomNumberGenerator(0, 255)})`;
+  let color;
+  if(this.r == -1) {
+    color = `rgb(${randomNumberGenerator(0, 255)},${randomNumberGenerator(
+      0,
+      255
+    )},${randomNumberGenerator(0, 255)})`;
+  } else {
+    color = `rgb(${this.r},${this.g},${this.b})`;
+  }
 
   for (var i = 0; i < numberOfParticles; i++) {
     var particle = new Particle();
