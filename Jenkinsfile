@@ -22,7 +22,7 @@ pipeline {
 
     stage('Packaging/Pushing image'){
       steps{
-        withDockerRegistry(credentialsId: '(docker-hub)', url: 'https://index.docker.io/v1/') {
+        withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
           bat ' docker build . -t 21120448/devops_hcmus'
           bat 'docker push 21120448/devops_hcmus'
         }
