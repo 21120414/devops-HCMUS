@@ -7,14 +7,6 @@ pipeline {
       }
     }
 
-    stage('Build with Maven') {
-        steps {
-            sh 'mvn --version'
-            sh 'java -version'
-            sh 'mvn clean package -Dmaven.test.failure.ignore=true'
-        }
-    }
-
     stage('Packaging/Pushing imagae'){
       steps{
         withDockerRegistry(credentialsId: '(docker hub)', url: 'https://index.docker.io/v1/') {
@@ -25,4 +17,3 @@ pipeline {
     }
   }
 }
-  
