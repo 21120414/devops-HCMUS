@@ -3,7 +3,7 @@ pipeline {
   stages{
     stage ('Pull Github repository'){
       steps{
-        git branch: 'main', url: 'https://github.com/hahaQuocBao/devops-HCMUS.git'
+        git branch: 'main', url: 'https://github.com/21120414/devops-HCMUS.git'
       }
     }
 
