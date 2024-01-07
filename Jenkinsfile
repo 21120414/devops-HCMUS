@@ -14,9 +14,9 @@ pipeline {
 
     stage('Build with Maven') {
         steps {
-            sh 'mvn --version'
-            sh 'java -version'
-            sh 'mvn clean package -Dmaven.test.failure.ignore=true'
+            bat 'mvn --version'
+            bat 'java -version'
+            bat 'mvn clean package -Dmaven.test.failure.ignore=true'
         }
     }
 
@@ -32,16 +32,16 @@ pipeline {
     stage('Deploy Spring Boot to DEV') {
         steps {
             echo 'Deploying and cleaning'
-            sh 'docker image pull 21120448/devops_hcmus'
-            sh 'docker container stop 21120448/devops_hcmus || echo "this container does not exist" '
-            sh 'docker network create dev || echo "this network exists"'
-            sh 'echo y | docker container prune '
+            bat 'docker image pull 21120448/devops_hcmus'
+            bat 'docker container stop 21120448/devops_hcmus || echo "this container does not exist" '
+            bat 'docker network create dev || echo "this network exists"'
+            bat 'echo y | docker container prune '
 
-            sh 'docker container run -d --rm --name 21120448/devops_hcmus -p 8081:8080 --network dev 21120448/devops_hcmus'
+            bat 'docker container run -d --rm --name 21120448/devops_hcmus -p 8081:8080 --network dev 21120448/devops_hcmus'
         }
     }
   }
-  
+
   post {
       // Clean after build
       always {
