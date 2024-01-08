@@ -29,7 +29,7 @@ pipeline {
       }
     }
 
-    stage('Deploy Spring Boot to DEV') {
+    stage('Deploy Web to container') {
         steps {
             echo 'Deploying and cleaning'
             bat 'docker image pull 21120448/devops_hcmus'

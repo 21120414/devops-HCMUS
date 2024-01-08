@@ -124,14 +124,14 @@ function createFirework() {
   //Increase range for bigger fireworks
   var numberOfParticles = randomNumberGenerator(10, 50);
   let color;
-  if(this.r == -1) {
+  // if(this.r == -1) {
     color = `rgb(${randomNumberGenerator(0, 255)},${randomNumberGenerator(
       0,
       255
     )},${randomNumberGenerator(0, 255)})`;
-  } else {
-    color = `rgb(${this.r},${this.g},${this.b})`;
-  }
+  // } else {
+  //   color = `rgb(${this.r},${this.g},${this.b})`;
+  // }
 
   for (var i = 0; i < numberOfParticles; i++) {
     var particle = new Particle();
